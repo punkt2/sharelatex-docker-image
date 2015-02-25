@@ -1,4 +1,4 @@
-ShareLaTeX Docker Image
+ShareLaTeX Docker Image with LDAP Authentication
 =======================
 
 **Please read this entire file before installing ShareLaTeX via Docker. It's only
