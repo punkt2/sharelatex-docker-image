@@ -36,6 +36,9 @@ ADD nginx/sharelatex.conf /etc/nginx/sites-enabled/sharelatex.conf
 RUN mkdir /etc/service/nginx
 ADD runit/nginx.sh /etc/service/nginx/run
 
+# Install ghostscript needed for epstopdf
+RUN apt-get install -y ghostscript
+
 # Set up ShareLaTeX services to run automatically on boot
 RUN mkdir /etc/service/chat-sharelatex; \
 	mkdir /etc/service/clsi-sharelatex; \
