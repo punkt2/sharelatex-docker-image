@@ -91,6 +91,9 @@ ADD 00_regen_sharelatex_secrets.sh  /etc/my_init.d/00_regen_sharelatex_secrets.s
 ADD 00_make_sharelatex_data_dirs.sh /etc/my_init.d/00_make_sharelatex_data_dirs.sh
 ADD 00_set_docker_host_ipaddress.sh /etc/my_init.d/00_set_docker_host_ipaddress.sh
 
+# Install complete TeXLive
+RUN tlmgr install scheme-full
+
 EXPOSE 80
 
 ENTRYPOINT ["/sbin/my_init"]
