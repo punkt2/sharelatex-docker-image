@@ -49,7 +49,7 @@ $ docker run -d \
   --link redis:redis \
   --name=sharelatex \
   -p 5000:80 \
-  -v ~/sharelatex_data:/var/lib/sharelatex \
+  -v /opt/sharelatex:/var/lib/sharelatex \
   punkt2/sharelatex
 ```
 
