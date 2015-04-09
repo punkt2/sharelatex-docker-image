@@ -65,10 +65,6 @@ ADD runit/tags-sharelatex.sh             /etc/service/tags-sharelatex/run
 ADD runit/track-changes-sharelatex.sh    /etc/service/track-changes-sharelatex/run
 ADD runit/web-sharelatex.sh              /etc/service/web-sharelatex/run
 
-# Install ShareLaTeX settings file
-RUN mkdir /etc/sharelatex
-ADD settings.coffee /etc/sharelatex/settings.coffee
-
 # Install TexLive
 RUN apt-get install -y wget
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz; \
@@ -96,6 +92,11 @@ ADD 00_set_docker_host_ipaddress.sh /etc/my_init.d/00_set_docker_host_ipaddress.
 
 # Install complete TeXLive
 RUN tlmgr install scheme-full
+
+# Install ShareLaTeX settings file
+RUN mkdir /etc/sharelatex
+ADD settings.coffee /etc/sharelatex/settings.coffee
+ENV SHARELATEX_CONFIG /etc/sharelatex/settings.coffee
 
 EXPOSE 80
 
